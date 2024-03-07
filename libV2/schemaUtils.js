@@ -1742,9 +1742,8 @@ let QUERYPARAM = 'query',
     switch (requestNameSource) {
       case 'fallback' : {
         // operationId is usually camelcase or snake case
-        reqName = operationItem.summary ||
-            utils.insertSpacesInName(operationItem.operationId) ||
-            operationItem.description || requestUrl;
+        reqName = operationItem.operationId ||
+            operationItem.summary || operationItem.description || requestUrl;
         break;
       }
       case 'url' : {
